@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Invite · CS Batch 2K25</title>
+<style>
+:root{color-scheme:dark;--bg:#14081f;--cy:#ff9ccf;--pk:#d7b8ff;--rd:#ff3d5a;--tx:#dff6ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#4a1560 0,var(--bg) 65%);color:var(--tx);font-family:"Courier New",ui-monospace,monospace;display:flex;align-items:center;justify-content:center;padding:20px;overflow-x:hidden}
+canvas{position:fixed;inset:0;pointer-events:none}
+#bg{opacity:.45;z-index:0}#cf{z-index:9}
+body:after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px),radial-gradient(circle,transparent 55%,rgba(0,0,0,.6));pointer-events:none;z-index:2}
+.box{width:100%;max-width:480px;position:relative;z-index:3;text-align:center}
+.tag{color:var(--rd);font-size:12px;letter-spacing:3px;animation:bl 1.4s infinite}@keyframes bl{50%{opacity:.35}}
+h1{font-family:Impact,"Arial Black",sans-serif;font-size:50px;margin:8px 0 2px;letter-spacing:6px;color:transparent;-webkit-text-stroke:1.5px var(--cy);animation:gl 3s infinite}
+@keyframes gl{0%,90%,100%{text-shadow:0 0 18px rgba(255,156,207,.7)}92%{text-shadow:-4px 0 var(--pk),4px 0 var(--cy);transform:translateX(3px)}95%{text-shadow:4px 0 var(--rd),-4px 0 var(--cy);transform:translateX(-4px)}}
+.sub{color:var(--pk);font-size:15px;margin:0 0 16px;transition:transform .2s}.sub:hover{transform:scale(1.05)}
+.win{text-align:left;border:1.5px solid var(--cy);border-radius:20px;overflow:hidden;background:rgba(20,8,31,.9);box-shadow:0 0 45px rgba(255,156,207,.35),inset 0 0 45px rgba(255,156,207,.08)}
+.top{padding:11px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(255,156,207,.35)}
+.dot{width:11px;height:11px;border-radius:50%}
+#tab{margin-left:8px;color:var(--cy);font-size:13px;letter-spacing:2px}
+.run{margin-left:auto;font:inherit;font-size:13px;letter-spacing:1px;background:transparent;color:var(--cy);border:1px solid var(--cy);border-radius:14px;padding:7px 14px;cursor:pointer;animation:glow 1.5s infinite}
+@keyframes glow{50%{box-shadow:0 0 22px var(--cy)}}
+#code{padding:16px 12px;font-size:14px;line-height:1.8;min-height:250px;counter-reset:l}
+#code div{white-space:pre-wrap;word-break:break-word;transition:transform .2s;transform-origin:left center;animation:ln .35s}
+#code div:hover{transform:scale(1.04)}
+#code div:before{counter-increment:l;content:counter(l);display:inline-block;width:24px;margin-right:12px;text-align:right;color:#8a6f9e}
+@keyframes ln{from{opacity:0;transform:translateX(-14px)}}
+.k{color:#ff79c6}.v{color:#8be9fd}.o{color:#ff79c6}.s{color:#f1fa8c}.n{color:#bd93f9}.c{color:#6c7bb0;font-style:italic}.f{color:#50fa7b}.sec{color:#ff5555!important;font-weight:bold}#out b{color:#f1fa8c}
+.term{border-top:1px solid rgba(255,156,207,.35);padding:14px;font-size:14px;line-height:1.7;min-height:140px;background:rgba(0,0,0,.25)}
+.term .h{color:#9b7fb0;font-size:11px;letter-spacing:3px;margin-bottom:6px}
+.term p{margin:4px 0;animation:ln .3s}
+.good{color:#50fa7b}.big{font-size:20px;color:#fff;font-weight:bold;transition:transform .2s}.big:hover{transform:scale(1.04)}
+input{background:transparent;border:0;border-bottom:1px solid var(--cy);color:#fff;font:inherit;font-size:16px;outline:none;width:62%;padding:3px 4px}
+.b{font:inherit;font-size:14px;border:1px solid var(--cy);background:transparent;color:var(--cy);border-radius:14px;padding:11px 16px;margin:10px 8px 0 0;cursor:pointer;text-decoration:none;display:inline-block;letter-spacing:1px;transition:.2s}
+.b:hover{transform:scale(1.04);box-shadow:0 0 22px var(--cy)}.b.y{border-color:var(--pk);color:#ffd1e8;font-weight:bold;animation:glow 1.5s infinite}
+.cur{display:inline-block;width:8px;height:15px;background:#fff;vertical-align:middle;animation:bk 1s steps(1) infinite}@keyframes bk{50%{opacity:0}}
+.sig{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,156,207,.4);text-align:center;transition:transform .2s}.sig:hover{transform:scale(1.05)}
+.by{font-family:Impact,"Arial Black",sans-serif;font-size:26px;letter-spacing:5px;color:#ffd1e8;text-shadow:0 0 18px #ff3d5a,0 0 6px #ff9ccf}
+#mute{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;z-index:10;background:rgba(20,8,31,.8);border:1px solid var(--cy);color:#fff;border-radius:14px;padding:6px 10px;cursor:pointer}
+</style></head><body>
+<canvas id="bg"></canvas><canvas id="cf"></canvas><button id="mute">🔊</button>
+<div class="box">
+<div class="tag">● CLASSIFIED · FOR YOUR EYES ONLY</div>
+<h1>INVITE</h1>
+<p class="sub">CS Batch 2K25 · Welcome Party</p>
+<div class="win">
+<div class="top"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span id="tab">main.py</span><button class="run" id="run">▶ RUN</button></div>
+<div id="code"></div>
+<div class="term"><div class="h">TERMINAL</div><div id="out"><p><span class="good">$</span> waiting for you to press Run<span class="cur"></span></p></div></div>
+</div></div>
+<script>
+var $=function(i){return document.getElementById(i)},AC,muted=false,name="";
+function ac(){if(!AC){var C=window.AudioContext||window.webkitAudioContext;if(C)AC=new C()}if(AC&&AC.state==="suspended")AC.resume();return AC}
+function tone(f,d,ty,v,t0){if(muted)return;var a=ac();if(!a)return;var t=a.currentTime+(t0||0),o=a.createOscillator(),g=a.createGain();o.type=ty||"square";o.frequency.value=f;g.gain.setValueAtTime(v||.04,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+d)}
+function key(){tone(1400+Math.random()*500,.025,"square",.015)}
+function chime(){[523,659,784,1047].forEach(function(f,i){tone(f,.35,"sine",.08,i*.12)})}
+$("mute").onclick=function(){muted=!muted;$("mute").textContent=muted?"🔇":"🔊"};
+var L1=['<span class="c"># main.py</span>','<span class="f">print</span>(<span class="s">"Hello, World!"</span>)'];
+var L2=['<span class="c"># invite.py</span>','<span class="v">event</span>   <span class="o">=</span> <span class="s">"Welcome Party"</span>','<span class="v">date</span>    <span class="o">=</span> <span class="s">"Friday, <span class="n">23</span> Oct <span class="n">2026</span>"</span>','<span class="v">time</span>    <span class="o">=</span> <span class="s">"<span class="n">1:00</span> PM to <span class="n">2:30</span> PM"</span>','<span class="v">venue</span>   <span class="o">=</span> <span class="s">"Second Floor Hall"</span>','<span class="v">agenda</span>  <span class="o">=</span> <span class="sec">"???"</span> <span class="c"># top secret!</span>','<span class="v">rsvp_by</span> <span class="o">=</span> <span class="s">"Monday, <span class="n">19</span> Oct <span class="n">2026</span>"</span>','<span class="c"># from: Batch 2K25</span>'];
+function lines(arr,done,sound){var d=$("code");d.innerHTML="";var i=0;(function n(){if(i>=arr.length){done&&done();return}var e=document.createElement("div");e.innerHTML=arr[i++];d.appendChild(e);if(sound)key();setTimeout(n,sound?420:0)})()}
+function out(h,cls){var p=document.createElement("p");p.innerHTML=h;if(cls)p.className=cls;$("out").appendChild(p);key();return p}
+lines(L1);
+$("run").onclick=function(){ac();$("run").style.display="none";$("out").innerHTML="";out('<span class="good">$</span> python main.py');
+setTimeout(function(){out("Hello, World!","good");chime()},700);
+setTimeout(function(){out('<span class="good">$</span> ...wait. 1 new file just appeared: <b>invite.py</b>')},1900);
+setTimeout(function(){$("tab").textContent="invite.py";lines(L2,askName,true)},3000)};
+function askName(){setTimeout(function(){$("out").innerHTML="";out('<span class="good">$</span> python invite.py');out('Your name: <input id="nm" maxlength="30" autocomplete="off" placeholder="type here">');var i=$("nm");i.focus();i.addEventListener("keydown",function(e){if(e.key==="Enter"&&i.value.trim()){name=i.value.trim();ask()}})},500)}
+function ask(){$("out").innerHTML="";var p=out("");p.appendChild(document.createTextNode("Hello, "+name+"! Will you be there?"));var w=document.createElement("div");w.innerHTML='<button class="b y" id="yes">YES, COUNT ME IN</button><button class="b" id="no">NO, I CAN\'T MAKE IT</button>';$("out").appendChild(w);
+$("yes").onclick=function(){done(true)};$("no").onclick=function(){done(false)}}
+function wa(msg){return "https://wa.me/923008206876?text="+encodeURIComponent(msg)}
+function done(yes){$("out").innerHTML="";var a=document.createElement("a");a.target="_blank";a.rel="noopener";
+if(yes){chime();confetti();var p=out("");p.className="big";p.textContent="Presence confirmed, "+name+" ✓";out("See you Friday 23 Oct, 1:00 PM, second floor hall. The rest is a surprise.");a.className="b y";a.href=wa("Presence confirmed. "+name+" will attend the Welcome Party on 23 Oct, 1:00 PM.");a.textContent="SEND CONFIRMATION ON WHATSAPP"}
+else{out("No worries, "+name+". We'll miss you!");a.className="b";a.href=wa(name+" can't make it to the Welcome Party.");a.textContent="LET US KNOW ON WHATSAPP"}
+$("out").appendChild(a);var s=document.createElement("div");s.className="sig";s.innerHTML='<div class="by">— BY BATCH 2K25</div>';$("out").appendChild(s)}
+function confetti(){var cf=$("cf"),cc=cf.getContext("2d");cf.width=innerWidth;cf.height=innerHeight;var C=["#ffb3d1","#ff7eb6","#ff3d5a","#ff9ccf","#e8164a","#ff5c8a"],ps=[];for(var i=0;i<240;i++)ps.push({x:innerWidth/2,y:innerHeight*.6,vx:(Math.random()-.5)*16,vy:-Math.random()*17-3,r:Math.random()*6,s:Math.random()*8+4,c:C[i%6],a:1});(function f(){cc.clearRect(0,0,cf.width,cf.height);var l=0;ps.forEach(function(p){p.vy+=.4;p.x+=p.vx;p.y+=p.vy;p.r+=.2;p.a-=.006;if(p.a>0&&p.y<cf.height+20){l++;cc.save();cc.globalAlpha=p.a;cc.translate(p.x,p.y);cc.rotate(p.r);cc.fillStyle=p.c;cc.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cc.restore()}});if(l)requestAnimationFrame(f);else cc.clearRect(0,0,cf.width,cf.height)})()}
+var bg=$("bg"),bx=bg.getContext("2d"),dr=[],CH="01{}<>/;=()$#&print def if♡✦";
+function rs(){bg.width=innerWidth;bg.height=innerHeight;dr=[];for(var i=0;i<Math.floor(bg.width/16);i++)dr[i]=Math.random()*-60}rs();addEventListener("resize",rs);
+setInterval(function(){bx.fillStyle="rgba(20,8,31,.13)";bx.fillRect(0,0,bg.width,bg.height);bx.font="14px monospace";for(var i=0;i<dr.length;i++){bx.fillStyle=i%11===0?"#d7b8ff":"#ff9ccf";bx.fillText(CH[Math.floor(Math.random()*CH.length)],i*16,dr[i]*16);if(dr[i]*16>bg.height&&Math.random()>.975)dr[i]=0;dr[i]++}},55);
+</script></body></html>
